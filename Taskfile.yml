@@ -1,0 +1,24 @@
+# https://taskfile.dev
+
+version: "3"
+
+vars:
+  DIR_GRAALVM: "{{.PWD}}/graalvm/bin"
+  CMD_GU: "{{.DIR_GRAALVM}}/gu"
+  CMD_JAVAC: "{{.DIR_GRAALVM}}/javac"
+  CMD_NATIVEIMAGE: "{{.DIR_GRAALVM}}/native-image"
+
+tasks:
+  install-nativeimage:
+    internal: true
+    cmds:
+      - "{{.CMD_GU}} install native-image"
+  helloworld:
+    deps: [install-nativeimage]
+    dir: helloworld
+    cmds:
+      - rm -f ./app ./App.class
+      - "{{.CMD_JAVAC}} App.java"
+      - "{{.CMD_NATIVEIMAGE}} App"
+      - file ./app
+      - ./app
