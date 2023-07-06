@@ -4,7 +4,7 @@ Oracle GraalVM example by java. (using native-image)
 
 ## Requirements
 
-### GraalVM
+### [GraalVM](https://www.graalvm.org/)
 
 ```sh
 $ wget https://download.oracle.com/graalvm/20/latest/graalvm-jdk-20_linux-x64_bin.tar.gz
