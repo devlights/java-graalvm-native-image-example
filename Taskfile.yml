@@ -19,6 +19,6 @@ tasks:
     cmds:
       - rm -f ./app ./App.class
       - "{{.CMD_JAVAC}} App.java"
-      - "{{.CMD_NATIVEIMAGE}} App"
+      - "{{.CMD_NATIVEIMAGE}} -Ob App"
       - file ./app
       - ./app
